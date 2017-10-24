@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BD_Registro"
+             BackgroundColor="#F8BBD0"
+             x:Class="BD_Registro.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="add"
+                     Text="Agregar"
+                     Icon="anadir.png"
+                     Order="Secondary"
+                     Clicked="add_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="Filtro"
+                       TextChanged="Filtro_TextChanged"></SearchBar>
+            <ActivityIndicator IsVisible="False" IsEnabled="True" x:Name="act_list"></ActivityIndicator>
+            <ScrollView>
+            <ListView x:Name="registros" ItemsSource="{Binding Items}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="registros_ItemSelected"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="registros_Refreshing">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                         <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem x:Name="editar"
+                                              Text="Actualizar"
+                                              Clicked="editar_Clicked"
+                                              BindingContext="{Binding Matricula}"/>
+                                    <MenuItem x:Name="eliminar"
+                                              Text="Eliminar"
+                                              Clicked="eliminar_Clicked"
+                                              IsDestructive="True"
+                                              BindingContext="{Binding Matricula}"/>
+                                </ViewCell.ContextActions>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions  >
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Matricula:" Grid.Column="0" Grid.Row="0">  </Label>
+                                <Label Text="{Binding Matricula}" Grid.Column="1" Grid.Row="0"></Label>
+
+                                <Label Text="Nombre:" Grid.Column="0" Grid.Row="1"></Label>
+                                    <Grid Grid.Column="1" Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Nombre}" Grid.Column="0"></Label>
+                                        <Label Text="{Binding Apellidos}" Grid.Column="1"></Label>
+                                    </Grid>
+                                </Grid>
+                    </ViewCell>
+                </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

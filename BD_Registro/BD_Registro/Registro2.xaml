@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BD_Registro.Registro2"
+             xmlns:behaviors="clr-namespace:BD_Registro.Behaviors;assembly=BD_Registro"
+             BackgroundColor="#00CCFF">
+
+    <ScrollView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--0-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--1-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--2-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--3-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--4-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--5-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--6-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--7-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--8-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--9-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--10-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--11-->
+                <RowDefinition Height="Auto" ></RowDefinition>
+                <!--Button-->
+            </Grid.RowDefinitions>
+            <Label Text="Datos Personales"  Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" TextColor="White" ></Label>
+            <Entry x:Name="N" Placeholder="Nombre" Grid.Row="1" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="3" TextColor="DarkBlue" TextChanged="N_TextChanged" IsEnabled="False">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="50"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry x:Name="AP" Placeholder= "Apellidos" Grid.Row="2" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="3"  TextColor="DarkBlue" TextChanged="AP_TextChanged" IsEnabled="False">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="50"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry x:Name="D" Placeholder="Direccion" Grid.Row="3" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="3" TextColor="DarkBlue" TextChanged="D_TextChanged" IsEnabled="False">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="150"/>
+                </Entry.Behaviors>
+            </Entry>
+            
+            <Entry x:Name="T" Placeholder="Telefono" Keyboard="Telephone" Grid.Row="4" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" TextColor="DarkBlue" TextChanged="T_TextChanged" IsEnabled="False" Grid.ColumnSpan="3">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="10"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Datos Escolares"  Grid.Row="5"  Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" TextColor="White" ></Label>
+            <!--<Entry x:Name="C" Placeholder="Carrera" Grid.Row="6"  BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="2" TextColor="DarkBlue"></Entry>-->
+            <Picker x:Name="C" Title="Carrera" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" IsEnabled="False">
+                <Picker.ItemsSource >
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String >LA</x:String>
+                        <x:String >LB</x:String>
+                        <x:String >LG</x:String>
+                        <x:String >IC</x:String>
+                        <x:String >II</x:String>
+                        <x:String >IM</x:String>
+                        <x:String >ISC</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+         
+            <Picker x:Name="S" Title="Semestre" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" IsEnabled="False">
+                <Picker.ItemsSource >
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String >1°</x:String>
+                        <x:String >2°</x:String>
+                        <x:String >3°</x:String>
+                        <x:String >4°</x:String>
+                        <x:String >5°</x:String>
+                        <x:String >6°</x:String>
+                        <x:String >7°</x:String>
+                        <x:String >8°</x:String>
+                        <x:String >9°</x:String>
+                        <x:String >10°</x:String>
+                        <x:String >11°</x:String>
+                        <x:String >12°</x:String>
+                        <x:String >13°</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry x:Name="M" Placeholder="Matricula" Keyboard="Numeric" Grid.Row="8" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="3" TextColor="DarkBlue" TextChanged="M_TextChanged" IsEnabled="False">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="8"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Datos Sociales"  Grid.Row="9"  Grid.Column="0" Grid.ColumnSpan="3" FontSize="Medium" TextColor="White" ></Label>
+            <Entry x:Name="CE" Placeholder="Email" Grid.Row="10"  BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="3" Keyboard="Email" TextColor="DarkBlue" IsEnabled="False">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="50"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label x:Name="CEV" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="11" TextColor="Red"/>
+            <Entry x:Name="GH" Placeholder="GitHub" Grid.Row="12" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" Grid.ColumnSpan="3" TextColor="DarkBlue" Keyboard="Url" IsEnabled="False">
+                <Entry.Behaviors>
+                    <behaviors:EntryLengthValidatorBehavior MaxLength="50"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Button Grid.Column="0" Grid.Row="13" Text="Actualizar" TextColor="White" x:Name="Actualizar" Clicked="Actualizar_Clicked" IsEnabled="True" IsVisible="True"></Button>
+            <Button Grid.Column="0" Grid.Row="13" Text="Cancelar" TextColor="White" x:Name="Cancelar" Clicked="Cancelar_Clicked" IsEnabled="False" IsVisible="False"></Button>
+            <Button Grid.Column="2" Grid.Row="13" Text="Ok" TextColor="White" x:Name="Enviar" Clicked="Enviar_Clicked" IsEnabled="False" IsVisible="False"></Button>
+        </Grid>
+    </ScrollView>
+</ContentPage>

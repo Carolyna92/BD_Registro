@@ -172,15 +172,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\anadir.png" />
   </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\smartphone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\telefonoantiguo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\actualizar.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

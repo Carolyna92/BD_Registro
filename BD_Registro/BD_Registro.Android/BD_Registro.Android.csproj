@@ -52,8 +52,33 @@
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.282\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Client, Version=4.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Azure.Mobile.Client.4.0.2\lib\monoandroid70\Microsoft.Azure.Mobile.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Client.SQLiteStore, Version=4.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Azure.Mobile.Client.SQLiteStore.4.0.2\lib\netstandard1.4\Microsoft.Azure.Mobile.Client.SQLiteStore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PCLCrypto, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d4421c8a4786956c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PCLCrypto.2.0.147\lib\MonoAndroid23\PCLCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.BCrypt, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PInvoke.BCrypt.0.5.97\lib\portable-net45+win8+wpa81\PInvoke.BCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Kernel32, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PInvoke.Kernel32.0.5.97\lib\portable-net45+win8+wpa81\PInvoke.Kernel32.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.NCrypt, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PInvoke.NCrypt.0.5.97\lib\portable-net45+win8+wpa81\PInvoke.NCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="PInvoke.Windows.Core, Version=0.5.0.0, Culture=neutral, PublicKeyToken=9e300f9f87f04a7a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PInvoke.Windows.Core.0.5.97\lib\portable-net45+win8+wpa81\PInvoke.Windows.Core.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite-net, Version=1.5.166.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\sqlite-net-pcl.1.5.166-beta\lib\netstandard1.1\SQLite-net.dll</HintPath>
     </Reference>
@@ -74,9 +99,20 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.ObjectModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Validation, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Validation.2.4.15\lib\netstandard1.3\Validation.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
     </Reference>
@@ -91,6 +127,9 @@
     </Reference>
     <Reference Include="Xamarin.Android.Support.Core.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Support.Core.Utils.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Core.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.CustomTabs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.CustomTabs.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\lib\MonoAndroid70\Xamarin.Android.Support.Design.dll</HintPath>
@@ -145,6 +184,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -194,6 +234,9 @@
     <Error Condition="!Exists('..\..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets'))" />
     <Error Condition="!Exists('..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets'))" />
     <Error Condition="!Exists('..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets'))" />
+    <Error Condition="!Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
   </Target>
   <Import Project="..\..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.282\build\netstandard1.0\Xamarin.Forms.targets')" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Compat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Compat.targets')" />
@@ -211,4 +254,7 @@
   <Import Project="..\..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.AppCompat.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.AppCompat.targets')" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Design.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Design.targets')" />
   <Import Project="..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.v7.MediaRouter.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.v7.MediaRouter.targets')" />
+  <Import Project="..\..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.CustomTabs.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.CustomTabs.targets')" />
+  <Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
 </Project>

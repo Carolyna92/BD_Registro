@@ -1,6 +1,12 @@
 ﻿{
   "dependencies": {
+    "Microsoft.Azure.Mobile.Client": "4.0.2",
+    "Microsoft.Azure.Mobile.Client.SQLiteStore": "4.0.2",
+    "Microsoft.Bcl": "1.1.10",
+    "Microsoft.Bcl.Build": "1.0.21",
+    "Microsoft.Net.Http": "2.2.29",
     "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.1",
+    "Newtonsoft.Json": "10.0.3",
     "sqlite-net-pcl": "1.5.166-beta",
     "Xamarin.Forms": "2.4.0.282"
   },

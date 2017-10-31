@@ -4,6 +4,8 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
 
 namespace BD_Registro.iOS
 {

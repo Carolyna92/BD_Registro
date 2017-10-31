@@ -12,11 +12,27 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+using Microsoft.WindowsAzure.MobileServices;
+using System.Threading.Tasks;
 
 namespace BD_Registro.UWP
 {
-    public sealed partial class MainPage
+    public sealed partial class MainPage /*: ISQLAzure */    
     {
+        private MobileServiceUser usuario;
+        //public async Task<MobileServiceUser> Authenticate()
+        //{
+        //    try
+        //    {
+        //        usuario = await BD_Registro.MainPage.client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, true);
+        //            if (usuario != null)  /* La variable usuario no esta vacia, si no esta vacia ejecuta lo que esta dentro del if*/
+        //            {
+        //            await new MessageDialog(usuario.UserId, "Bienvenido").ShowAsync();
+        //                                      //PRIMERO MENSAJE Y DESPUES EL TITULO
+        //        }
+        //    }
+        //}
         public MainPage()
         {
             this.InitializeComponent();

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
+using Microsoft.WindowsAzure.MobileServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -94,18 +94,21 @@ namespace BD_Registro
                                                     Email = CE.Text,
                                                     Git_Hub = GH.Text,
                                                 };
-                                                
+                                                MobileServicePreconditionFailedException<Datos_BD> exception= null;
                                                 try
                                                 {
-                                                    database.Insert(data);
+                                                    //database.Insert(data);
+                                                    await MainPage.Tabla.InsertAsync(data);
                                                 }
-                                                catch(SQLiteException ex)
+                                                catch(MobileServicePreconditionFailedException<Datos_BD> writeException)
                                                 {
+                                                    exception = writeException;
                                                     await DisplayAlert("Error", "Fallo al intentar ingresar el registro", "OK");
                                      
                                                 }
+                                               
                                                 //database.Insert(data);
-                                                Navigation.PushAsync(new MainPage()).Wait();
+                                                await Navigation.PushAsync(new MainPage());
                                             }
                                             else
                                             {

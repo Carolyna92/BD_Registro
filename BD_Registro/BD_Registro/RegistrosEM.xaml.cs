@@ -1,5 +1,4 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +11,16 @@ using Xamarin.Forms.Xaml;
 namespace BD_Registro
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Registro2 : ContentPage
+    public partial class RegistrosEM : ContentPage
     {
-        SQLiteConnection database;
-        public Registro2(object selectedItem)
+        public RegistrosEM(object selectedItem)
         {
             var dato = selectedItem as Datos_BD;
             BindingContext = dato;
             InitializeComponent();
             string db;
             db = DependencyService.Get<Registro_BD>().GetLocalFilePath("Datos_Registro.db");
-            database = new SQLiteConnection(db);
+            //database = new SQLiteConnection(db);
             id.Text = dato.Id;
             N.Text = dato.Nombre;
             AP.Text = dato.Apellidos;
@@ -33,6 +31,7 @@ namespace BD_Registro
             CE.Text = dato.Email;
             GH.Text = dato.Git_Hub;
             M.Text = Convert.ToString(dato.Matricula);
+            delete.IsToggled = dato.Deleted;
         }
 
         async void Enviar_Clicked(object sender, EventArgs e)
@@ -93,7 +92,7 @@ namespace BD_Registro
                                             {
                                                 var Datos = new Datos_BD
                                                 {
-                                                    Id=id.Text,
+                                                    Id = id.Text,
                                                     Matricula = Convert.ToInt32(M.Text),
                                                     Nombre = N.Text,
                                                     Apellidos = AP.Text,
@@ -103,10 +102,11 @@ namespace BD_Registro
                                                     Semestre = Convert.ToInt16(S.SelectedIndex),
                                                     Email = CE.Text,
                                                     Git_Hub = GH.Text,
+                                                    Deleted=delete.IsToggled
                                                 };
                                                 //database.Update(Datos);
-                                                await MainPage.Tabla.UpdateAsync(Datos);
-                                                await Navigation.PushAsync(new MainPage());
+                                                await MainPage.Tabla.UndeleteAsync(Datos);
+                                                await Navigation.PushAsync(new Eliminados());
                                             }
                                             else
                                             {
@@ -185,6 +185,7 @@ namespace BD_Registro
             Enviar.IsVisible = true;
             Eliminar.IsEnabled = false;
             Eliminar.IsVisible = false;
+            delete.IsEnabled = true;
         }
 
         async void Cancelar_Clicked(object sender, EventArgs e)

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+
 
 namespace BD_Registro
 {
     public class Datos_BD
     {
+        string id;
         int matricula;
         string nombre;
         string apellidos;
@@ -18,60 +21,75 @@ namespace BD_Registro
         int semestre;
         string correo;
         string gh;
+        bool deleted;
 
-        [MaxLength(8), PrimaryKey, Unique]
+        //[MaxLength(8), PrimaryKey, Unique]
+        [JsonProperty(PropertyName ="id")]
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        [JsonProperty(PropertyName = "matricula")]
         public int Matricula
         {
             get { return matricula; }
             set { matricula = value; }
         }
-        [MaxLength(50)]
+        [JsonProperty(PropertyName = "nombre")]
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-        [MaxLength(50)]
+        [JsonProperty(PropertyName = "apellidos")]
         public string Apellidos
         {
             get { return apellidos; }
             set { apellidos = value; }
         }
-        [MaxLength(150)]
+        [JsonProperty(PropertyName = "direccion")]
         public string Direccion
         {
             get { return direccion; }
             set { direccion = value; }
         }
-        [MaxLength(10)]
+        [JsonProperty(PropertyName = "telefono")]
         public string Telefono
         {
             get { return telefono; }
             set { telefono = value; }
         }
-        [MaxLength(3)]
+        [JsonProperty(PropertyName = "carrera")]
         public int Carrera
         {
             get { return carrera; }
             set { carrera = value; }
         }
-        [MaxLength(3)]
+        [JsonProperty(PropertyName = "semestre")]
         public int Semestre
         {
             get { return semestre; }
             set { semestre = value; }
         }
-        [MaxLength(50)]
+        [JsonProperty(PropertyName = "correo")]
         public string Email
         {
             get { return correo; }
             set { correo = value; }
         }
-        [MaxLength(50)]
+        [JsonProperty(PropertyName = "gh")]
         public string Git_Hub
         {
             get { return gh; }
             set { gh = value; }
+        }
+
+        [JsonProperty(PropertyName = "deleted")]
+        public bool Deleted
+        {
+            get { return deleted; }
+            set { deleted = value; }
         }
     }
 }

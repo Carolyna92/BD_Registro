@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BD_Registro.Registro2"
+             x:Class="BD_Registro.RegistrosEM"
              xmlns:behaviors="clr-namespace:BD_Registro.Behaviors;assembly=BD_Registro"
              BackgroundColor="#00CCFF">
 
@@ -59,7 +59,7 @@
                     <behaviors:EntryLengthValidatorBehavior MaxLength="150"/>
                 </Entry.Behaviors>
             </Entry>
-            
+
             <Entry x:Name="T" Placeholder="Telefono" Keyboard="Telephone" Grid.Row="4" BackgroundColor="White" PlaceholderColor="Black"  Grid.Column="0" TextColor="DarkBlue" TextChanged="T_TextChanged" IsEnabled="False" Grid.ColumnSpan="3">
                 <Entry.Behaviors>
                     <behaviors:EntryLengthValidatorBehavior MaxLength="10"/>
@@ -80,7 +80,7 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
-         
+
             <Picker x:Name="S" Title="Semestre" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="White" IsEnabled="False">
                 <Picker.ItemsSource >
                     <x:Array Type="{x:Type x:String}">
@@ -117,10 +117,12 @@
                     <behaviors:EntryLengthValidatorBehavior MaxLength="50"/>
                 </Entry.Behaviors>
             </Entry>
-            <Button Grid.Column="0" Grid.Row="13" Text="Actualizar" TextColor="White" x:Name="Actualizar" Clicked="Actualizar_Clicked" IsEnabled="True" IsVisible="True"></Button>
-            <Button Grid.Column="2" Grid.Row="13" Text="Eliminar" TextColor="White" x:Name="Eliminar" Clicked="Eliminar_Clicked" IsEnabled="True" IsVisible="True"></Button>
-            <Button Grid.Column="0" Grid.Row="13" Text="Cancelar" TextColor="White" x:Name="Cancelar" Clicked="Cancelar_Clicked" IsEnabled="False" IsVisible="False"></Button>
-            <Button Grid.Column="2" Grid.Row="13" Text="Ok" TextColor="White" x:Name="Enviar" Clicked="Enviar_Clicked" IsEnabled="False" IsVisible="False"></Button>
+            <Label Text="Deshacer Eliminado" Grid.Row="13" Grid.Column="0"></Label>
+            <Switch x:Name="delete" Grid.Row="13" Grid.Column="1" IsEnabled="False" IsVisible="True"></Switch>
+            <Button Grid.Column="0" Grid.Row="14" Text="Actualizar" TextColor="White" x:Name="Actualizar" Clicked="Actualizar_Clicked" IsEnabled="True" IsVisible="True"></Button>
+            <Button Grid.Column="2" Grid.Row="14" Text="Eliminar" TextColor="White" x:Name="Eliminar" Clicked="Eliminar_Clicked" IsEnabled="True" IsVisible="True"></Button>
+            <Button Grid.Column="0" Grid.Row="14" Text="Cancelar" TextColor="White" x:Name="Cancelar" Clicked="Cancelar_Clicked" IsEnabled="False" IsVisible="False"></Button>
+            <Button Grid.Column="2" Grid.Row="14" Text="Ok" TextColor="White" x:Name="Enviar" Clicked="Enviar_Clicked" IsEnabled="False" IsVisible="False"></Button>
             <Label x:Name="id" Grid.Column="0" Grid.Row="14" IsVisible="False"/>
         </Grid>
     </ScrollView>

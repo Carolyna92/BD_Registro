@@ -1,38 +1,29 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using SQLite;
-using System.Collections.ObjectModel;
-using Microsoft.WindowsAzure.MobileServices;
 
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace BD_Registro
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class Eliminados : ContentPage
     {
-
-        //SQLiteConnection database;
         public static MobileServiceClient client;
         public static IMobileServiceTable<Datos_BD> Tabla;
 
         public ObservableCollection<Datos_BD> Items { get; set; }
-
-        public MainPage()
+        public Eliminados()
         {
-            
-            //string db;
-            //db = DependencyService.Get<Registro_BD>().GetLocalFilePath("Datos_Registro.db");
-            //database = new SQLiteConnection(db);
-            //database.CreateTable<Datos_BD>();
             InitializeComponent();
-            //Items = new ObservableCollection<Datos_BD>(database.Table<Datos_BD>());
-            //BindingContext = this;
             client = new MobileServiceClient(AzureConnection.AzureURL);
             Tabla = client.GetTable<Datos_BD>();
-            LeerTabla();        
+            LeerTablaU();
         }
 
         private void registros_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -62,37 +53,14 @@ namespace BD_Registro
             }
             else
             {
-                await Navigation.PushAsync(new Registro2(registros.SelectedItem as Datos_BD));
+                await Navigation.PushAsync(new RegistrosEM(registros.SelectedItem as Datos_BD));
             }
-            
+
         }
 
-        //async void eliminar_Clicked(object sender, EventArgs e)
-        //{
-        //    if (registros.SelectedItem == null)
-        //    {
-        //        await DisplayAlert("", "Selecciona el registro", "OK");
-        //    }
-        //    else
-        //    {
-        //        var datos = new Datos_BD
-        //        {
-                    
-        //        };
-        //        //database.Delete(registros.SelectedItem);
-        //        await MainPage.Tabla.DeleteAsync(datos);
-        //        await Navigation.PushAsync(new MainPage());
-        //    }            
-        //}
-
-        //private void registros_Refreshing(object sender, EventArgs e)
-        //{
-
-            
-        //}
-        private async void LeerTabla()
+        private async void LeerTablaU()
         {
-            IEnumerable<Datos_BD> elementos = await Tabla.ToEnumerableAsync(); //Convierte en una lista enumerable
+            IEnumerable<Datos_BD> elementos = await Tabla.IncludeDeleted().Where(DatosBD=>DatosBD.Deleted==true).ToCollectionAsync(); //Convierte en una lista enumerable
             Items = new ObservableCollection<Datos_BD>(elementos);
             BindingContext = this;
             await RefreshItems(true, syncItems: true);
@@ -100,10 +68,10 @@ namespace BD_Registro
 
         private async void del_Toggled(object sender, ToggledEventArgs e)
         {
-                if (elim.IsToggled == true)
-                {
-                await Navigation.PushAsync(new Eliminados());
-                }
+            if (elim.IsToggled == false)
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
         }
         protected override async void OnAppearing()
         {
@@ -136,7 +104,7 @@ namespace BD_Registro
         {
             using (var scope = new ActivityIndicatorScope(act_list, showActivityIndicator))
             {
-                IEnumerable<Datos_BD> elementos = await Tabla.ToEnumerableAsync(); //Convierte en una lista enumerable
+                IEnumerable<Datos_BD> elementos = await Tabla.IncludeDeleted().Where(DatosBD => DatosBD.Deleted == true).ToEnumerableAsync(); //Convierte en una lista enumerable
                 Items = new ObservableCollection<Datos_BD>(elementos);
                 BindingContext = this;
             }
@@ -149,32 +117,32 @@ namespace BD_Registro
             private Task indicatorDelay;
 
             public ActivityIndicatorScope(ActivityIndicator indicator, bool showIndicator)
-            {
-                this.indicator = indicator;
-                this.showIndicator = showIndicator;
+        {
+            this.indicator = indicator;
+            this.showIndicator = showIndicator;
 
-                if (showIndicator)
-                {
-                    indicatorDelay = Task.Delay(2000);
-                    SetIndicatorActivity(true);
-                }
-                else
-                {
-                    indicatorDelay = Task.FromResult(0);
-                }
+            if (showIndicator)
+            {
+                indicatorDelay = Task.Delay(2000);
+                SetIndicatorActivity(true);
             }
-
-            private void SetIndicatorActivity(bool isActive)
+            else
             {
-                this.indicator.IsVisible = isActive;
-                this.indicator.IsRunning = isActive;
+                indicatorDelay = Task.FromResult(0);
+            }
+        }
+
+        private void SetIndicatorActivity(bool isActive)
+        {
+            this.indicator.IsVisible = isActive;
+            this.indicator.IsRunning = isActive;
             }
 
             public void Dispose()
             {
                 if (showIndicator)
                 {
-                    indicatorDelay.ContinueWith(t => SetIndicatorActivity(false), TaskScheduler.FromCurrentSynchronizationContext());
+                indicatorDelay.ContinueWith(t => SetIndicatorActivity(false), TaskScheduler.FromCurrentSynchronizationContext());
                 }
             }
         }

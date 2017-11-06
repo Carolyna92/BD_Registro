@@ -8,7 +8,14 @@ using Xamarin.Forms;
 namespace BD_Registro
 {
     public partial class App : Application
+
     {
+        public static ISQLAzure Authenticator { get; private set; }
+        public static void Init(ISQLAzure authenticator)
+        {
+            Authenticator = authenticator;
+        }
+
         public App()
         {
             InitializeComponent();

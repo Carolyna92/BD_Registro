@@ -15,7 +15,7 @@ namespace BD_Registro
     {
 
         //SQLiteConnection database;
-        public static MobileServiceClient client;
+        public static MobileServiceClient cliente;
         public static IMobileServiceTable<Datos_BD> Tabla;
 
         public ObservableCollection<Datos_BD> Items { get; set; }
@@ -30,8 +30,8 @@ namespace BD_Registro
             InitializeComponent();
             //Items = new ObservableCollection<Datos_BD>(database.Table<Datos_BD>());
             //BindingContext = this;
-            client = new MobileServiceClient(AzureConnection.AzureURL);
-            Tabla = client.GetTable<Datos_BD>();
+            cliente = new MobileServiceClient(AzureConnection.AzureURL);
+            Tabla = cliente.GetTable<Datos_BD>();
             LeerTabla();        
         }
 

@@ -14,15 +14,13 @@ namespace BD_Registro
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Eliminados : ContentPage
     {
-        public static MobileServiceClient client;
         public static IMobileServiceTable<Datos_BD> Tabla;
 
         public ObservableCollection<Datos_BD> Items { get; set; }
         public Eliminados()
         {
             InitializeComponent();
-            client = new MobileServiceClient(AzureConnection.AzureURL);
-            Tabla = client.GetTable<Datos_BD>();
+            Tabla = Logeo.cliente.GetTable<Datos_BD>();
             LeerTablaU();
         }
 
@@ -60,6 +58,7 @@ namespace BD_Registro
 
         private async void LeerTablaU()
         {
+
             IEnumerable<Datos_BD> elementos = await Tabla.IncludeDeleted().Where(DatosBD=>DatosBD.Deleted==true).ToCollectionAsync(); //Convierte en una lista enumerable
             Items = new ObservableCollection<Datos_BD>(elementos);
             BindingContext = this;

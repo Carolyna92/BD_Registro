@@ -25,7 +25,7 @@ namespace BD_Registro.UWP
         {
             try
             {
-                usuario = await BD_Registro.MainPage.cliente.LoginAsync(MobileServiceAuthenticationProvider.Facebook, true);
+                usuario = await BD_Registro.Logeo.cliente.LoginAsync(MobileServiceAuthenticationProvider.Facebook, "bdregistroazure.azurewebsites.net");
                     if (usuario != null)  /* La variable usuario no esta vacia, si no esta vacia ejecuta lo que esta dentro del if*/
                     {
                     await new MessageDialog(usuario.UserId, "Bienvenido").ShowAsync();
@@ -42,7 +42,6 @@ namespace BD_Registro.UWP
         {
             this.InitializeComponent();
             BD_Registro.App.Init((ISQLAzure)this);
-
             LoadApplication(new BD_Registro.App());
         }
     }

@@ -45,6 +45,9 @@
       <DependentUpon>Eliminados.xaml</DependentUpon>
     </Compile>
     <Compile Include="ISQLAzure.cs" />
+    <Compile Include="Logeo.xaml.cs">
+      <DependentUpon>Logeo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RegistrosEM.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Logeo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

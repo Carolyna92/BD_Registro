@@ -20,7 +20,7 @@ namespace BD_Registro.Droid
             var message = string.Empty;
             try
             {
-                usuario = await BD_Registro.MainPage.cliente.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook, @"http://conexion-azure.azurewebsites.net/.auth/login/facebook/callback");
+                usuario = await BD_Registro.Logeo.cliente.LoginAsync(this, MobileServiceAuthenticationProvider.Facebook, "bdregistroazure.azurewebsites.net");
                 if (usuario != null)
                 {
                     message = string.Format("iniciando sesion{0].",usuario.UserId);

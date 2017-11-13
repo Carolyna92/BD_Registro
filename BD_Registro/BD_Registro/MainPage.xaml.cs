@@ -14,24 +14,18 @@ namespace BD_Registro
     public partial class MainPage : ContentPage
     {
 
-        //SQLiteConnection database;
-        public static MobileServiceClient cliente;
+       
         public static IMobileServiceTable<Datos_BD> Tabla;
-
+        
         public ObservableCollection<Datos_BD> Items { get; set; }
 
         public MainPage()
         {
             
-            //string db;
-            //db = DependencyService.Get<Registro_BD>().GetLocalFilePath("Datos_Registro.db");
-            //database = new SQLiteConnection(db);
-            //database.CreateTable<Datos_BD>();
+          
             InitializeComponent();
-            //Items = new ObservableCollection<Datos_BD>(database.Table<Datos_BD>());
-            //BindingContext = this;
-            cliente = new MobileServiceClient(AzureConnection.AzureURL);
-            Tabla = cliente.GetTable<Datos_BD>();
+
+            Tabla = Logeo.cliente.GetTable<Datos_BD>();
             LeerTabla();        
         }
 
@@ -67,35 +61,22 @@ namespace BD_Registro
             
         }
 
-        //async void eliminar_Clicked(object sender, EventArgs e)
-        //{
-        //    if (registros.SelectedItem == null)
-        //    {
-        //        await DisplayAlert("", "Selecciona el registro", "OK");
-        //    }
-        //    else
-        //    {
-        //        var datos = new Datos_BD
-        //        {
-                    
-        //        };
-        //        //database.Delete(registros.SelectedItem);
-        //        await MainPage.Tabla.DeleteAsync(datos);
-        //        await Navigation.PushAsync(new MainPage());
-        //    }            
-        //}
-
-        //private void registros_Refreshing(object sender, EventArgs e)
-        //{
-
-            
-        //}
+   
         private async void LeerTabla()
         {
             IEnumerable<Datos_BD> elementos = await Tabla.ToEnumerableAsync(); //Convierte en una lista enumerable
             Items = new ObservableCollection<Datos_BD>(elementos);
-            BindingContext = this;
-            await RefreshItems(true, syncItems: true);
+            if (Items == null)
+            {
+                await DisplayAlert("", "No existen registros", "OK");
+            }else
+            {
+                BindingContext = this;
+                await RefreshItems(true, syncItems: true);
+
+            }
+
+            
         }
 
         private async void del_Toggled(object sender, ToggledEventArgs e)

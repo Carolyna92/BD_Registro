@@ -28,7 +28,7 @@ namespace BD_Registro.iOS
         {
             var message = string.Empty;
             try {
-                usuario = await BD_Registro.MainPage.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController, MobileServiceAuthenticationProvider.Facebook, "http://conexion-azure.azurewebsites.net/.auth/login/facebook/callback");
+                usuario = await BD_Registro.Logeo.cliente.LoginAsync(UIApplication.SharedApplication.KeyWindow.RootViewController, MobileServiceAuthenticationProvider.Facebook, "bdregistroazure.azurewebsites.net");
                 if (usuario != null)
                 {
                     message = string.Format("iniciando sesion{0].",usuario.UserId);

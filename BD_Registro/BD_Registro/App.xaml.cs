@@ -20,7 +20,7 @@ namespace BD_Registro
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage (new BD_Registro.MainPage());
+            MainPage = new NavigationPage (new BD_Registro.Logeo());
         }
 
         protected override void OnStart()

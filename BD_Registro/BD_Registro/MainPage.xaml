@@ -34,11 +34,7 @@
                                               Text="Actualizar"
                                               Clicked="editar_Clicked"
                                               BindingContext="{Binding Id}"/>
-                                    <!--<MenuItem x:Name="eliminar"
-                                              Text="Eliminar"
-                                              Clicked="eliminar_Clicked"
-                                              IsDestructive="True"
-                                              BindingContext="{Binding Id}"/>-->
+                                   
                                 </ViewCell.ContextActions>
                             <Grid>
                                 <Grid.ColumnDefinitions>

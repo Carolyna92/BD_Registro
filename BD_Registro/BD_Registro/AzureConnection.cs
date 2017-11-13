@@ -8,6 +8,6 @@ namespace BD_Registro
 {
   public static  class AzureConnection
     {
-        public static string AzureURL = @"http://conexion-azure.azurewebsites.net";
+        public static string AzureURL = @"https://conexion-azure.azurewebsites.net";
     }
 }

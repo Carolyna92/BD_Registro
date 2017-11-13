@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.BD_Registro">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="BD_Registro.Android"></application>
+	<application android:label="BD_Registro.Android">
+    <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="bdregistroazure.azurewebsites.net" android:host="easyauth.callback" />
+      </intent-filter>
+    </activity>
+
+  </application>
 </manifest>

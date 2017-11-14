@@ -183,23 +183,11 @@ namespace BD_Registro
             Cancelar.IsVisible = true;
             Enviar.IsEnabled = true;
             Enviar.IsVisible = true;
-            Eliminar.IsEnabled = false;
-            Eliminar.IsVisible = false;
             delete.IsEnabled = true;
         }
 
         async void Cancelar_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
-        }
-
-        async void Eliminar_Clicked(object sender, EventArgs e)
-        {
-            var Datos = new Datos_BD
-            {
-                Id = id.Text
-            };
-            await MainPage.Tabla.DeleteAsync(Datos);
             await Navigation.PushAsync(new MainPage());
         }
     }

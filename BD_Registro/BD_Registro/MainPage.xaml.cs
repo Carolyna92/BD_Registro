@@ -159,5 +159,15 @@ namespace BD_Registro
                 }
             }
         }
+
+        private async void Logout_Clicked(object sender, EventArgs e)
+        {
+            bool loggeOut = false;
+            if (App.Authenticator != null)
+            {
+                loggeOut = await App.Authenticator.LogoutAsync();
+              await  Navigation.PushAsync(new Logeo());
+            }
+        }
     }
 }

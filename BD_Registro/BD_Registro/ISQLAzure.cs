@@ -10,8 +10,11 @@ namespace BD_Registro
     public interface ISQLAzure
     {
         Task<MobileServiceUser> Authenticate();
+
+        Task<bool> LogoutAsync();
     }
 
     }
+
         
   

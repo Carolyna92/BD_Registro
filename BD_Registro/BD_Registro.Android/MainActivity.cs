@@ -8,6 +8,9 @@ using Android.Widget;
 using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Threading.Tasks;
+using System.Net;
+using Android.Webkit;
+//using Android.Webkit;
 
 namespace BD_Registro.Droid
 {
@@ -36,6 +39,13 @@ namespace BD_Registro.Droid
             builder.Create().Show();
             return usuario;
         }
+        public async Task<bool> LogoutAsync()
+        {
+            CookieManager.Instance.RemoveAllCookie();
+            await BD_Registro.Logeo.cliente.LogoutAsync();
+            return true;
+        }
+
 
         protected override void OnCreate(Bundle bundle)
         {

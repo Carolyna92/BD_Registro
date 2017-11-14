@@ -43,7 +43,17 @@ namespace BD_Registro.iOS
             avAlert.Show();
             return usuario;
         }
-         
+        public async Task<bool> LogoutAsync()
+        {
+            foreach(var cookie in NSHttpCookieStorage.SharedStorage.Cookies)
+            {
+                NSHttpCookieStorage.SharedStorage.DeleteCookie(cookie);
+            }
+            await BD_Registro.Logeo.cliente.LogoutAsync();
+            return true;
+        }
+
+
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();

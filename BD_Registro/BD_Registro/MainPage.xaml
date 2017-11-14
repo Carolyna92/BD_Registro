@@ -11,6 +11,12 @@
                      Icon="anadir.png"
                      Order="Secondary"
                      Clicked="add_Clicked"/>
+        <ToolbarItem x:Name="Logout"
+                     Text="Cerrar Sesion"
+                     Icon="logout.png"
+                     Order="Secondary"
+                     Clicked="Logout_Clicked"/>
+
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

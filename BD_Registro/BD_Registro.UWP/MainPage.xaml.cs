@@ -38,6 +38,13 @@ namespace BD_Registro.UWP
             }
             return usuario;
         }
+
+        public async Task<bool> LogoutAsync()
+        {
+            await BD_Registro.Logeo.cliente.LogoutAsync();
+            return true;
+        }
+
         public MainPage()
         {
             this.InitializeComponent();
